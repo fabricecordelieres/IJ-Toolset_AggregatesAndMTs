@@ -165,4 +165,13 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 ### Step 2.2: Data extraction
 The analysis for randomized (an original) dataset within the **output_folder/Random/** are basically performed the same way as for non randomized data ([see Tool1, Step 1.7: Data extraction](#step-17-data-extraction)). The only differences come from the input ROI for aggregates that are taken within the **Random** subfolder, and output results files that are saved in the **output_folder/Random/Results folder**.
 
- 
+## Python script: Quickly review the data
+A Python script is provided to quickly review the data.
+
+From the results table, it allows plotting one variable against another for all csv files in a folder. It also plots the values' distribution for parameters selected in X and Y.
+![Example of output: scatter plot and distributions](/illustrations/Example_scatterPlot.jpg?raw=true)
+**_Example of output: scatter plot and distributions_**
+
+As the toolset extracts many parameters, it might be worth exploring if some of them are correlated. Therefore, the scripts allows retrieving the correlation coefficients of doublets of parameters and provides a display as a correlogram from a single, user selected, csv file.
+![Example of output: correlogram](/illustrations/Example_correlogram.jpg?raw=true)
+**_Example of output: correlogram_**
