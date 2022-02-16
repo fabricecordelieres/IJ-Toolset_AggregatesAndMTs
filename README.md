@@ -119,4 +119,25 @@ For each tif file in the **output_folder/Cells**, the following operations are p
         3. _Topology-related (on the distance maps):_ Mean, StdDev, Mode, Min, Max, Median distance to MTs/cell/nucleus
 6. Numerical values per aggregates are saved in **output_folder/Results/Basename-Cell_XXX.csv**.
 
+## Tool 2: Randomize Aggregates
+### Step 2.1: Generate randomized dataset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Example of output: randomized image](/illustrations/Example_randomization.jpg?raw=true)
+**_Example of output: randomized image_**
+
+### Step 2.2: Data extraction
+
  
