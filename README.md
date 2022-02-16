@@ -1,4 +1,4 @@
-# IJ-Toolset_AggregateAndMTs
+# IJ-Toolset: Aggregates and MTs
 
 # User's request
 The users has images presenting microtubules, nuclei and aggregates. The aim of the toolset is to isolate all three types of elements and characterize the morphometric parameters of the aggregate and evaluate their dependency to topological cues (distance to cell borders/MTs/nuclei).
