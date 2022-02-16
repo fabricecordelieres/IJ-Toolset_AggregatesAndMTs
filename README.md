@@ -3,6 +3,9 @@
 # User's request
 The users has images presenting microtubules, nuclei and aggregates. The aim of the toolset is to isolate all three types of elements and characterize the morphometric parameters of the aggregate and evaluate their dependency to topological cues (distance to cell borders/MTs/nuclei).
 
+![Example of input image](/illustrations/Example_image.jpg?raw=true)
+**_Example of input image_**
+
 # What does it do ?
 The workflow comes as a toolset made of 2 tools and includes a Python script to quickly review the data.
 
@@ -45,7 +48,7 @@ For each czi file in the **input_folder**, the following operations are performe
     9. The image is multiplied by the pixel distance calibration: the distance map now expresses the distances in microns, not in pixels anymore.
     10. The image of the calibrated distance map is saved in **output_folder/Distance_Maps/Basename-Cell_XXX_Cell-Map.tif**.
 
-[Example of output: distance maps](https://github.com/fabricecordelieres/IJ-Toolset_AggregateAndMTs/blob/main/illustrations/Distance_maps.jpg?raw=true)
+![Example of output: distance maps](/illustrations/Distance_maps.jpg?raw=true)
 **_Example of output: distance maps_**
 
 ### Step 1.3: MTs segmentation
