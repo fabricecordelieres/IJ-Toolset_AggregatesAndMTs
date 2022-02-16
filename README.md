@@ -121,19 +121,43 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 
 ## Tool 2: Randomize Aggregates
 ### Step 2.1: Generate randomized dataset
-
-
-
-
-
-
-
-
-
-
-
-
-
+For each tif file in the **output_folder/Cells**, the following operations are performed:
+1. The image is opened.
+2. XY coordinates columns are extracted from the corresponding results table found in **output_folder/Results/Basename-Cell_XXX.csv**.
+3. The cell and nuclei masks are opened from **output_folder/Masks/Basename-Cell_XXX_Cell-Mask.tif** and **output_folder/Masks/Basename-Cell_XXX_Nuclei-Mask.tif** respectively.
+4. The nuclei mask is subtracted from the cell mask to create a mask for the cytoplasmic compartment: this defines the region where aggregates should be randomly placed.
+5. For each randomization round:
+    1. The original image is activated, duplicated and named "**Randomized**".
+    2. On the duplicate, the aggregates channel is filled black.
+    3. The cell and nuclei rois are opened from **output_folder/ROIs/Basename-Cell_XXX_Cell-ROI.roi** and **output_folder/ROIs/Basename-Cell_XXX_Nuclei-ROI.roi** respectively.
+    4. Both ROIs are combined using a XOR operator: the resulting ROI is renamed and pushed to the ROI Manager as the Cytoplasm ROI, while both original ROIs are deleted from it.
+    5. The ROI set containing the outlines of all aggregates is opened from output_folder/ROIs/Basename-Cell_XXX_Aggregates-RoiSet.zip and added to the ROI Manager.
+    6. Only during the first round of randomization:
+            1. The original image is selected and the aggregates channel is activated.
+            2. All aggregates ROIs are combined into a single ROI.
+            3. Pixels outside the ROI are set to black (pixels outside the aggregates area are considered to be part of the background).
+            4. The cleaned, original image is saved as **output_folder/Random/ROIs/Basename-Cell_XXX_Original-Image.tif**.
+            5. The current set of ROIs (aggregates and cytoplasm) is saved as **output_folder/Random/ROIs/Basename-Cell_XXX_Original-Rois.zip**.
+    7. The first ROI (cytoplasm) is renamed "**Cytoplasm_wo_aggregates**".
+    8. For each ROI, except the first one (ie for each aggregate ROI):
+           1. The **Basename-Cell_XXX_Original-Image.tif** image is activated.
+           2. The aggregate ROI is selected and its content is copied to the clipboard. 
+           3. For each X and Y coordinates, a random draw is performed from a uniform distribution (intervalle: [0-image dimensions[).
+           4. The **Randomized image** is activated.
+           5. The aggregate ROI is selected and moved to match its newly calculated, randomized X, Y center.
+           6. Basic parameters are retrieved ,such as the maximum intensity within the ROI. In case it isn't 0, this means that another aggregate has already been placed here: this randomization round is not valid.
+           7. The **Cell-Mask** (mask of the cytoplam) image is activated.
+           8. The aggregate ROI with its randomized X, Y center is recalled onto this image.
+           9. Basic parameters are retrieved, such as the minimum intensity within the ROI. In case it isn't 255, this means that the aggregate is at least partially outside of the cytoplasm: this randomization round is not valid.
+           10. Validity of the randomized coordinated is check: if invalid, a new set is generated and tested. If validated, the workflow goes on.
+           11. The **Randomized** image is activated.
+           12. The aggregate ROI with its randomized X, Y center is recalled onto this image.
+           13. The content of the aggregate ROI, copied from the **Basename-Cell_XXX_Original-Image.tif** image is pasted onto the newly moved ROI.
+           14. The ROI Manager is updated so that the new position of the aggregate ROI is taken into account.
+           15. From the ROI Manager, both the newly placed aggregate and the Cytoplasm_wo_aggregates are selected, then combined using a XOR operator: the aggregate region is excluded from the cytoplasmic region and updated in the ROI Manager.
+6. Original and randomized X, Y coordinates are logged into a results table, then saved as **output_folder/Random/Results/Basename-Cell_XXX-Round_(Original or Randomized)-Image.csv**.
+7. The content of the ROI Manager is saved as **output_folder/Random/ROIs/Basename-Cell_XXX-Round_(Original or Randomized)-Rois.zip**.
+8. The randomized image is saved as **output_folder/Random/Cells/Basename-Cell_XXX-Round_Randomized-Image.tif**.
 
 ![Example of output: randomized image](/illustrations/Example_randomization.jpg?raw=true)
 **_Example of output: randomized image_**
