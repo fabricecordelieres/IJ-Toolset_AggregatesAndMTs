@@ -189,15 +189,15 @@ None
 
 ## How to install and use the macro/toolset ?
 **_ImageJ/Fiji Toolset:_**
-1. Simply copy the toolset to the Fiji's installation folder, in macros/toolset subfolder.
+1. Simply copy the [toolset](/Toolset/AggregatesAndMTs.ijm) to the Fiji's installation folder, in macros/toolset subfolder.
 2. From Fiji's toolbar, click on the last button (red double arrow) and select the toolset from the dropdown menu.
 3. Two new buttons should now be visible: click on the one corresponding to the step to perform and follow the instructions.
 
 **_Python Script:_**
 1. Have your data ready on your Google Drive, placed in a single folder at the root of your drive (no subfolder). You can simply drag-and-drop one of the output/Results folder to your drive.
 2. Have the Python Script ready:
-        1. Click on the ["Open in Colab"](https://colab.research.google.com/github/fabricecordelieres/IJ-Toolset_AggregatesAndMTs/blob/main/Python_Script/AggregatesAndMTs.ipynb) link in the GitHub repository.
-        2. 4. In the new window, select "File/Save a copy in Drive".
+    1. Click on the ["Open in Colab"](https://colab.research.google.com/github/fabricecordelieres/IJ-Toolset_AggregatesAndMTs/blob/main/Python_Script/AggregatesAndMTs.ipynb) link in the GitHub repository.
+    2. In the new window, select "File/Save a copy in Drive".
 3. Run the first cell by pressing the play button.
 4. Run the second cell by pressing the play button: a pop-up window should be displayed asking to gain access to the content of your drive. Follow the instructions.
 5. Run the third cell by pressing the play button: you'll get presented with drowdown list allowing you to select the folder where the data are stored, and the parameters to be plotted.
