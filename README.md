@@ -163,5 +163,6 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 **_Example of output: randomized image_**
 
 ### Step 2.2: Data extraction
+The analysis for randomized (an original) dataset within the **output_folder/Random/** are basically performed the same way as for non randomized data ([see Tool1, Step 1.7: Data extraction](#Step1.7)). The only differences come from the input ROI for aggregates that are taken within the **Random** subfolder, and output results files that are saved in the **output_folder/Random/Results folder**.
 
  
