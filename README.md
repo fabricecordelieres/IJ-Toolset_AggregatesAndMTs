@@ -9,6 +9,10 @@ The users has images presenting microtubules, nuclei and aggregates. The aim of 
 # What does it do ?
 The workflow comes as a toolset made of 2 tools and includes a Python script to quickly review the data.
 
+![Screenshot of the toolbar](/illustrations/Toolset.jpg?raw=true)
+
+**_Screenshot of the toolbar_**
+
 ## Tool 1: Analyze data
 This tool aims at segmenting the original image and performing morphological and topological data extraction. It performs in 7 steps:
 
@@ -175,3 +179,28 @@ From the results table, it allows plotting one variable against another for all 
 As the toolset extracts many parameters, it might be worth exploring if some of them are correlated. Therefore, the scripts allows retrieving the correlation coefficients of doublets of parameters and provides a display as a correlogram from a single, user selected, csv file.
 ![Example of output: correlogram](/illustrations/Example_correlogram.jpg?raw=true)
 **_Example of output: correlogram_**
+
+# How to use it ?
+## Versions of the software used
+Fiji, ImageJ 2.1.0/1.53f
+
+## Additional required software
+None
+
+## How to install and use the macro/toolset ?
+**_ImageJ/Fiji Toolset:_**
+1. Simply copy the toolset to the Fiji's installation folder, in macros/toolset subfolder.
+2. From Fiji's toolbar, click on the last button (red double arrow) and select the toolset from the dropdown menu.
+3. Two new buttons should now be visible: click on the one corresponding to the step to perform and follow the instructions.
+
+**_Python Script:_**
+1. Have your data ready on your Google Drive, placed in a single folder at the root of your drive (no subfolder). You can simply drag-and-drop one of the output/Results folder to your drive.
+2. Have the Python Script ready:
+        1. Click on the ["Open in Colab"](https://colab.research.google.com/github/fabricecordelieres/IJ-Toolset_AggregatesAndMTs/blob/main/Python_Script/AggregatesAndMTs.ipynb) link in the GitHub repository.
+        2. 4. In the new window, select "File/Save a copy in Drive".
+3. Run the first cell by pressing the play button.
+4. Run the second cell by pressing the play button: a pop-up window should be displayed asking to gain access to the content of your drive. Follow the instructions.
+5. Run the third cell by pressing the play button: you'll get presented with drowdown list allowing you to select the folder where the data are stored, and the parameters to be plotted.
+6. Run the forth cell by pressing the play button: all data will be plotted.
+7. Run the fifth cell by pressing the play button: you'll get presented with drowdown list allowing you to select the file from which the correlogram should be plotted.
+8. Run the sixth cell by pressing the play button: the correlogram will be plotted.
