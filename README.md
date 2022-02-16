@@ -3,13 +3,13 @@
 # User's request
 The users has images presenting microtubules, nuclei and aggregates. The aim of the toolset is to isolate all three types of elements and characterize the morphometric parameters of the aggregate and evaluate their dependency to topological cues (distance to cell borders/MTs/nuclei). Input data are individual czi files, stored in a single folder.
 
-![Example of input image](/illustrations/Example_image.jpg?raw=true)
+![Example of input image](/Illustrations/Example_image.jpg?raw=true)
 **_Example of input image_**
 
 # What does it do ?
 The workflow comes as a toolset made of 2 tools and includes a Python script to quickly review the data.
 
-![Screenshot of the toolbar](/illustrations/Toolset.jpg?raw=true)
+![Screenshot of the toolbar](/Illustrations/Toolset.jpg?raw=true)
 
 **_Screenshot of the toolbar_**
 
@@ -52,7 +52,7 @@ For each czi file in the **input_folder**, the following operations are performe
     9. The image is multiplied by the pixel distance calibration: the distance map now expresses the distances in microns, not in pixels anymore.
     10. The image of the calibrated distance map is saved in **output_folder/Distance_Maps/Basename-Cell_XXX_Cell-Map.tif**.
 
-![Example of output: distance maps](/illustrations/Distance_maps.jpg?raw=true)
+![Example of output: distance maps](/Illustrations/Distance_maps.jpg?raw=true)
 **_Example of output: distance maps_**
 
 ### Step 1.3: MTs segmentation
@@ -108,7 +108,7 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 7. The image is flattened with all ROIs overlayed and saved in **output_folder/Controls/Basename-Cell_XXX_Control-Image.jpg**.
 8. All ROIs are saved as a single file in **output_folder/Controls/Basename-Cell_XXX_Control-Rois.zip**.
 
-![Example of output: control image](/illustrations/Segmentation.jpg?raw=true)
+![Example of output: control image](/Illustrations/Segmentation.jpg?raw=true)
 **_Example of output: control image_**
 
 ### Step 1.7: Data extraction
@@ -163,7 +163,7 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 7. The content of the ROI Manager is saved as **output_folder/Random/ROIs/Basename-Cell_XXX-Round_(Original or Randomized)-Rois.zip**.
 8. The randomized image is saved as **output_folder/Random/Cells/Basename-Cell_XXX-Round_Randomized-Image.tif**.
 
-![Example of output: randomized image](/illustrations/Example_randomization.jpg?raw=true)
+![Example of output: randomized image](/Illustrations/Example_randomization.jpg?raw=true)
 **_Example of output: randomized image_**
 
 ### Step 2.2: Data extraction
@@ -173,11 +173,11 @@ The analysis for randomized (an original) dataset within the **output_folder/Ran
 A Python script is provided to quickly review the data.
 
 From the results table, it allows plotting one variable against another for all csv files in a folder. It also plots the values' distribution for parameters selected in X and Y.
-![Example of output: scatter plot and distributions](/illustrations/Example_scatterPlot.jpg?raw=true)
+![Example of output: scatter plot and distributions](/Illustrations/Example_scatterPlot.jpg?raw=true)
 **_Example of output: scatter plot and distributions_**
 
 As the toolset extracts many parameters, it might be worth exploring if some of them are correlated. Therefore, the scripts allows retrieving the correlation coefficients of doublets of parameters and provides a display as a correlogram from a single, user selected, csv file.
-![Example of output: correlogram](/illustrations/Example_correlogram.jpg?raw=true)
+![Example of output: correlogram](/Illustrations/Example_correlogram.jpg?raw=true)
 **_Example of output: correlogram_**
 
 # How to use it ?
