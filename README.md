@@ -1,7 +1,7 @@
 # IJ-Toolset: Aggregates and MTs
 
 # User's request
-The users has images presenting microtubules, nuclei and aggregates. The aim of the toolset is to isolate all three types of elements and characterize the morphometric parameters of the aggregate and evaluate their dependency to topological cues (distance to cell borders/MTs/nuclei).
+The users has images presenting microtubules, nuclei and aggregates. The aim of the toolset is to isolate all three types of elements and characterize the morphometric parameters of the aggregate and evaluate their dependency to topological cues (distance to cell borders/MTs/nuclei). Input data are individual czi files, stored in a single folder.
 
 ![Example of input image](/illustrations/Example_image.jpg?raw=true)
 **_Example of input image_**
@@ -106,5 +106,17 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 
 ![Example of output: control image](/illustrations/Segmentation.jpg?raw=true)
 **_Example of output: control image_**
+
+### Step 1.7: Data extraction
+For each tif file in the **output_folder/Cells**, the following operations are performed:
+1. The image is opened.
+2. The three distances maps are loaded from **output_folder/Distance_Maps/**: **Basename-Cell_XXX_Cell-Map.tif**, **Basename-Cell_XXX_MTs-Map.tif** and **Basename-Cell_XXX_Nuclei-Map.tif**.
+3. The aggregates ROI is loaded onto the first image from **output_folder/ROIs/Basename-Cell_XXX_Aggregates-Roi.roi**.
+4. The composite ROI, made of individual aggregates, is splitted into individualized objects that are pushed into the ROI Manager.
+5. In turn, each of the image is activated and the following measurements are performed within individual objects: 
+        1. _Morphometry-related (on the original image):_ Area, Perimeter, Bounding-box, Ellipse fitting parameters, Feret's lengths and angle, Aspect ratio, Roundness, Circularity, Solidity, Circularity
+        2. _Intensity-related (on the original image, on the aggregates channel):_ Mean, StdDev, Mode, Min, Max, Median
+        3. _Topology-related (on the distance maps):_ Mean, StdDev, Mode, Min, Max, Median distance to MTs/cell/nucleus
+6. Numerical values per aggregates are saved in **output_folder/Results/Basename-Cell_XXX.csv**.
 
  
