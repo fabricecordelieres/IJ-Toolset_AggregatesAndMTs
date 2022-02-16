@@ -91,13 +91,20 @@ For each tif file in the **output_folder/Cells**, the following operations are p
 9. The image is converted to 32-bits.
 10. The selection is inverted to encompass only pixels outside the cell: all pixels there are set to NaN (Not a Number: to be used as a marker for background).
 11. The image is multiplied by the pixel distance calibration: the distance map now expresses the distances in microns, not in pixels anymore.
-12. The image of the calibrated distance map is saved in **output_folder/Distance_Maps/Basename-Cell_XXX_MTs-Map.tif**.
+12. The image of the calibrated distance map is saved in **output_folder/Distance_Maps/Basename-Cell_XXX_Nuclei-Map.tif**.
 
-### Step 1.1: Generation of control images
-### Step 1.1: Data extraction
-## Tool 2: Randomize Aggregates
-## Python script: Quickly review the data
+### Step 1.6: Generation of control images
+For each tif file in the **output_folder/Cells**, the following operations are performed:
+1. The image is opened.
+2. The different detections ROIs are opened, colored and overlayed to the image as follows:
+3. The Aggregates ROI is loaded from **output_folder/ROIs/Basename-Cell_XXX_Aggregates-Roi.roi** and colored in yellow.
+4. The Cell ROI is loaded from **output_folder/ROIs/Basename-Cell_XXX_Cell-Roi.roi** and colored in magenta.
+5. The MTs ROI is loaded from **output_folder/ROIs/Basename-Cell_XXX_MTs-Roi.roi** and colored in white.
+6. The Nuclei ROI is loaded from **output_folder/ROIs/Basename-Cell_XXX_Nuclei-Roi.roi** and colored in cyan.
+7. The image is flattened with all ROIs overlayed and saved in **output_folder/Controls/Basename-Cell_XXX_Control-Image.jpg**.
+8. All ROIs are saved as a single file in **output_folder/Controls/Basename-Cell_XXX_Control-Rois.zip**.
 
-
+![Example of output: control image](/illustrations/Segmentation.jpg?raw=true)
+**_Example of output: control image_**
 
  
